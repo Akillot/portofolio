@@ -1,4 +1,21 @@
-import type { FC } from 'react'
+import { useState, useEffect, type FC } from 'react'
+
+const GLOBES = ['🌏', '🌍', '🌎']
+
+export const GlobeEmoji: FC = () => {
+  const [idx, setIdx] = useState(0)
+
+  useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % GLOBES.length), 1000)
+    return () => clearInterval(t)
+  }, [])
+
+  return (
+    <span className="inline-block ml-3 select-none" aria-hidden="true">
+      {GLOBES[idx]}
+    </span>
+  )
+}
 
 const GitHubIcon: FC<{ size?: number }> = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

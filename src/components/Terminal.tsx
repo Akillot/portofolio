@@ -30,7 +30,7 @@ function run(raw: string): string[] {
       '  whoami         about nick',
       '  clear          clear the terminal',
       '',
-      'Projects: lumpi, morphkit, nano-vwap, conkit, postkit',
+      'Projects: llmd, lumpi, morphkit, nano-vwap, conkit, postkit',
       '',
     ]
   }
@@ -38,7 +38,7 @@ function run(raw: string): string[] {
   if (cmd === 'ls' || cmd === 'ls projects') {
     return [
       '',
-      '  monalar   quantum   lumpi',
+      '  monalar   llmd      lumpi',
       '  morphkit  nano-vwap conkit',
       '  postkit',
       '',

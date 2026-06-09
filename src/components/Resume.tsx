@@ -1,10 +1,13 @@
 import type { FC } from 'react'
 
 const Resume: FC = () => (
-  <section id="resume" className="py-20 md:py-28 border-t border-gray-100">
-    <p className="text-[11px] font-semibold tracking-[0.15em] text-gray-400 uppercase mb-8">
+  <section id="resume" className="pt-12 pb-16 border-t border-gray-100 w-full md:pt-48 md:pb-32 md:border-t-0 md:w-64 md:shrink-0">
+    <h2
+      className="text-5xl md:text-7xl font-light tracking-tight text-black mb-5"
+      style={{ fontFamily: "'Inria Serif', serif" }}
+    >
       Resume
-    </p>
+    </h2>
     <p className="text-sm text-gray-500 mb-8 max-w-sm leading-relaxed">
       A summary of my work, experience, and background.
     </p>

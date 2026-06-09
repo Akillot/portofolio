@@ -59,7 +59,7 @@ const CompanyRow: FC<{ project: Project }> = ({ project }) => {
 const ProjectCard: FC<{ project: Project }> = ({ project }) => {
   const link = project.url ?? project.github
   return (
-    <div className="border border-gray-100 p-6 hover:border-gray-300 transition-colors duration-150 group">
+    <div className="border border-gray-100 p-6 hover:border-gray-300 transition-colors duration-150 group h-full flex flex-col">
       <div className="flex items-start justify-between mb-3">
         <h3 className="text-sm font-semibold text-black tracking-tight">{project.name}</h3>
         {link && (
@@ -74,7 +74,7 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => {
           </a>
         )}
       </div>
-      <p className="text-xs text-gray-500 leading-relaxed mb-5">{project.description}</p>
+      <p className="text-xs text-gray-500 leading-relaxed mb-5 flex-1">{project.description}</p>
       <div className="flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (
           <span key={tag} className="text-[10px] font-medium text-gray-400 bg-gray-50 px-2 py-0.5 rounded">
@@ -101,7 +101,7 @@ const Projects: FC = () => (
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100 mt-px">
       {open.map((project) => (
-        <div key={project.name} className="bg-white">
+        <div key={project.name} className="bg-white h-full">
           <ProjectCard project={project} />
         </div>
       ))}
