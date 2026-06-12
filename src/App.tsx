@@ -9,6 +9,30 @@ function App() {
   const [globeX, setGlobeX] = useState<number | null>(null)
 
   useEffect(() => {
+    const GLOBES = ['🌏', '🌍', '🌎']
+    let idx = 0
+    const canvas = document.createElement('canvas')
+    canvas.width = 64
+    canvas.height = 64
+    const ctx = canvas.getContext('2d')!
+    const link = document.querySelector<HTMLLinkElement>('link[rel~="icon"]')
+      ?? Object.assign(document.createElement('link'), { rel: 'icon' })
+    if (!link.parentNode) document.head.appendChild(link)
+    const draw = () => {
+      ctx.clearRect(0, 0, 64, 64)
+      ctx.font = '52px serif'
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
+      ctx.fillText(GLOBES[idx], 32, 34)
+      link.href = canvas.toDataURL()
+      idx = (idx + 1) % GLOBES.length
+    }
+    draw()
+    const t = setInterval(draw, 1000)
+    return () => clearInterval(t)
+  }, [])
+
+  useEffect(() => {
     const measure = () => {
       const h1 = document.querySelector('#hero h1') as HTMLElement
       const h2 = document.querySelector('#resume h2') as HTMLElement
@@ -27,7 +51,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans">
+    <div className="min-h-screen font-sans" style={{ backgroundColor: 'var(--c-bg)', color: 'var(--c-fg)' }}>
       <div className="max-w-5xl mx-auto px-6 sm:px-10">
         <div ref={wrapperRef} className="relative flex flex-col md:flex-row md:items-start md:justify-between">
           <Hero />

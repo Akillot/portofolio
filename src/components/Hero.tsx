@@ -58,12 +58,12 @@ const socials = [
 const Hero: FC = () => (
   <section id="hero" className="pt-32 pb-24 md:pt-48 md:pb-32">
     <h1
-      className="text-5xl md:text-7xl font-light tracking-tight text-black mb-5"
-      style={{ fontFamily: "'Inria Serif', serif" }}
+      className="text-5xl md:text-7xl font-light tracking-tight mb-5"
+      style={{ fontFamily: "'Inria Serif', serif", color: 'var(--c-fg)' }}
     >
       Nick Zozulia
     </h1>
-    <p className="text-base md:text-lg text-gray-500 mb-10 max-w-md leading-relaxed">
+    <p className="text-base md:text-lg mb-10 max-w-md leading-relaxed" style={{ color: 'var(--c-muted)' }}>
       Software engineer. Building fast, minimal tools.
     </p>
     <div className="flex items-center gap-5">
@@ -74,7 +74,10 @@ const Hero: FC = () => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="text-gray-400 hover:text-black transition-colors duration-150"
+          className="transition-colors duration-150"
+          style={{ color: 'var(--c-dim)', transition: 'color 0.15s' }}
+          onMouseEnter={e => (e.currentTarget.style.color = 'var(--c-fg)')}
+          onMouseLeave={e => (e.currentTarget.style.color = 'var(--c-dim)')}
         >
           <Icon size={20} />
         </a>

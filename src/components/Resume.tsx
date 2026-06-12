@@ -1,20 +1,39 @@
 import type { FC } from 'react'
 
 const Resume: FC = () => (
-  <section id="resume" className="pt-12 pb-16 border-t border-gray-100 w-full md:pt-48 md:pb-32 md:border-t-0 md:w-64 md:shrink-0">
+  <section
+    id="resume"
+    className="pt-12 pb-16 w-full md:pt-48 md:pb-32 md:w-64 md:shrink-0 border-t md:border-t-0"
+    style={{ borderColor: 'var(--c-border-light)' }}
+  >
     <h2
-      className="text-5xl md:text-7xl font-light tracking-tight text-black mb-5"
-      style={{ fontFamily: "'Inria Serif', serif" }}
+      className="text-5xl md:text-7xl font-light tracking-tight mb-5"
+      style={{ fontFamily: "'Inria Serif', serif", color: 'var(--c-fg)' }}
     >
       Resume
     </h2>
-    <p className="text-sm text-gray-500 mb-8 max-w-sm leading-relaxed">
+    <p className="text-sm mb-8 max-w-sm leading-relaxed" style={{ color: 'var(--c-muted)' }}>
       A summary of my work, experience, and background.
     </p>
     <a
       href="/resume.pdf"
       download
-      className="inline-flex items-center gap-2 text-sm font-medium text-black border border-black px-5 py-2.5 hover:bg-black hover:text-white transition-colors duration-150"
+      className="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5"
+      style={{
+        color: 'var(--c-fg)',
+        border: '1px solid var(--c-fg)',
+        transition: 'background-color 0.15s, color 0.15s',
+      }}
+      onMouseEnter={e => {
+        const el = e.currentTarget as HTMLAnchorElement
+        el.style.backgroundColor = 'var(--c-fg)'
+        el.style.color = 'var(--c-bg)'
+      }}
+      onMouseLeave={e => {
+        const el = e.currentTarget as HTMLAnchorElement
+        el.style.backgroundColor = ''
+        el.style.color = 'var(--c-fg)'
+      }}
     >
       Download PDF
       <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
