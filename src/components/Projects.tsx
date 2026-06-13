@@ -16,12 +16,12 @@ const CompanyRow: FC<{ project: Project }> = ({ project }) => {
     <div
       className="group relative mb-6 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
       style={{
-        border: '1px solid var(--c-border)',
-        backgroundColor: 'var(--c-subtle)',
+        border: '1px solid #333',
+        backgroundColor: '#000000',
         transition: 'border-color 0.15s',
       }}
-      onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'var(--c-border-s)')}
-      onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'var(--c-border)')}
+      onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = '#555')}
+      onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.borderColor = '#333')}
     >
       <div className="flex items-center gap-4">
         {logo && (
@@ -29,12 +29,12 @@ const CompanyRow: FC<{ project: Project }> = ({ project }) => {
         )}
         <div>
           <div className="flex items-baseline gap-3 mb-1">
-            <span className="text-[10px] font-semibold tracking-[0.12em] uppercase" style={{ color: 'var(--c-dim)' }}>
-              Company
+            <span className="text-[10px] font-semibold tracking-[0.12em] uppercase" style={{ color: '#636366' }}>
+              Startup
             </span>
-            <h3 className="text-base font-bold tracking-tight" style={{ color: 'var(--c-fg)' }}>{project.name}</h3>
+            <h3 className="text-base font-bold tracking-tight" style={{ color: '#f5f5f7' }}>{project.name}</h3>
           </div>
-          <p className="text-xs leading-relaxed" style={{ color: 'var(--c-muted)' }}>{project.description}</p>
+          <p className="text-xs leading-relaxed" style={{ color: '#86868b' }}>{project.description}</p>
         </div>
       </div>
       <div className="flex items-center gap-4 shrink-0">
@@ -44,9 +44,9 @@ const CompanyRow: FC<{ project: Project }> = ({ project }) => {
               key={tag}
               className="text-[10px] font-medium px-2 py-0.5 rounded"
               style={{
-                color: 'var(--c-dim)',
-                backgroundColor: 'var(--c-bg)',
-                border: '1px solid var(--c-border)',
+                color: '#86868b',
+                backgroundColor: '#1c1c1e',
+                border: '1px solid #333',
               }}
             >
               {tag}
@@ -60,9 +60,9 @@ const CompanyRow: FC<{ project: Project }> = ({ project }) => {
             rel="noopener noreferrer"
             aria-label={`${project.name} link`}
             className="transition-colors duration-150"
-            style={{ color: 'var(--c-dim)' }}
-            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--c-muted-strong)')}
-            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--c-dim)')}
+            style={{ color: '#636366' }}
+            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#aeaeb2')}
+            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#636366')}
           >
             <ExternalIcon />
           </a>
@@ -123,7 +123,7 @@ const open = projects.filter((p) => !p.isCompany)
 const Projects: FC = () => (
   <section id="projects" className="py-20 md:py-28">
     <p className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-10" style={{ color: 'var(--c-dim)' }}>
-      Projects
+      Portfolio
     </p>
 
     {company.map((p) => (
