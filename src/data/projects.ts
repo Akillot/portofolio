@@ -11,7 +11,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: 'Monalar',
-    description: 'Software company building developer tooling and products.',
+    description: 'Software company building financial intelligence infrastructure.',
     terminalLines: [
       '  monalar — company',
       '',
