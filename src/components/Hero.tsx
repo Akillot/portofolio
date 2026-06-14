@@ -40,8 +40,6 @@ const socials = [
   { label: 'GitHub',   href: 'https://github.com/Akillot',                           icon: GitHubIcon },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mykyta-zozulia-61b653307', icon: LinkedInIcon },
   { label: 'X',        href: 'https://x.com/nickzozulia',                            icon: XIcon },
-  { label: 'Medium',   href: 'https://medium.com/@nickzozulia',                      icon: MediumIcon },
-  { label: 'LeetCode', href: 'https://leetcode.com/u/Akillot/',                      icon: LeetCodeIcon },
   { label: 'Email',    href: 'mailto:nickzozulia@gmail.com',                         icon: MailIcon },
 ]
 
