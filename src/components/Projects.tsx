@@ -10,57 +10,53 @@ const ExternalIcon: FC = () => (
 
 const ProjectRow: FC<{ project: Project; last?: boolean }> = ({ project, last }) => {
   const link = project.url ?? project.github
-  const tags = project.tags.filter(t => t !== 'Company')
 
   return (
     <div
       className={`py-4 ${!last ? 'border-b' : ''}`}
       style={{ borderColor: 'var(--c-border-light)' }}
     >
-      <div className="flex items-baseline justify-between gap-4 mb-1">
-        <div className="flex items-center gap-1">
-          {link ? (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium"
-              style={{ color: 'var(--c-fg)', transition: 'color 0.1s' }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--c-muted)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--c-fg)')}
-            >
-              {project.name}
-            </a>
-          ) : (
-            <span className="text-sm font-medium" style={{ color: 'var(--c-fg)' }}>
-              {project.name}
-            </span>
-          )}
-          {link && (
-            <span style={{ color: 'var(--c-very-dim)' }}>
-              <ExternalIcon />
-            </span>
-          )}
-        </div>
-        <div className="flex items-center gap-1.5 shrink-0">
-          {project.isCompany && (
-            <span className="text-[10px] font-medium tracking-wide" style={{ color: 'var(--c-dim)' }}>
-              Startup
-            </span>
-          )}
-          {project.isCompany && tags.length > 0 && (
-            <span style={{ color: 'var(--c-border-s1)' }}>·</span>
-          )}
-          {tags.length > 0 && (
-            <span className="text-[10px]" style={{ color: 'var(--c-very-dim)' }}>
-              {tags.join(' · ')}
-            </span>
-          )}
-        </div>
+      <div className="flex items-baseline gap-1 mb-1">
+        {link ? (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium"
+            style={{ color: 'var(--c-fg)', transition: 'color 0.1s' }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--c-muted)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'var(--c-fg)')}
+          >
+            {project.name}
+          </a>
+        ) : (
+          <span className="text-sm font-medium" style={{ color: 'var(--c-fg)' }}>
+            {project.name}
+          </span>
+        )}
+        {link && (
+          <span style={{ color: 'var(--c-very-dim)' }}>
+            <ExternalIcon />
+          </span>
+        )}
       </div>
-      <p className="text-sm leading-relaxed" style={{ color: 'var(--c-muted)' }}>
-        {project.description}
-      </p>
+      {link ? (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm leading-relaxed block"
+          style={{ color: 'var(--c-muted)', transition: 'color 0.1s' }}
+          onMouseEnter={e => (e.currentTarget.style.color = 'var(--c-fg)')}
+          onMouseLeave={e => (e.currentTarget.style.color = 'var(--c-muted)')}
+        >
+          {project.description}
+        </a>
+      ) : (
+        <p className="text-sm leading-relaxed" style={{ color: 'var(--c-muted)' }}>
+          {project.description}
+        </p>
+      )}
     </div>
   )
 }

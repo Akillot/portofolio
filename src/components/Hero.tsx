@@ -53,17 +53,6 @@ const Hero: FC = () => (
           <Icon size={16} />
         </a>
       ))}
-      <span style={{ color: 'var(--c-border)' }}>·</span>
-      <a
-        href="/resume.pdf"
-        download
-        className="text-xs"
-        style={{ color: 'var(--c-dim)', transition: 'color 0.1s' }}
-        onMouseEnter={e => (e.currentTarget.style.color = 'var(--c-fg)')}
-        onMouseLeave={e => (e.currentTarget.style.color = 'var(--c-dim)')}
-      >
-        Resume ↓
-      </a>
     </div>
   </section>
 )
