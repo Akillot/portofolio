@@ -13,7 +13,16 @@ const PROMPT = 'nick@macbook ~ %'
 const catMap: Record<string, string[]> = Object.fromEntries(
   projects
     .filter((p) => !p.isCompany)
-    .map((p) => [p.name.toLowerCase().replace(/\s+/g, '-'), p.terminalLines])
+    .map((p) => [
+      p.name.toLowerCase().replace(/\s+/g, '-'),
+      [
+        `  ${p.name}`,
+        '',
+        `  ${p.description}`,
+        '',
+        `  ${p.github ?? p.url ?? ''}`,
+      ],
+    ])
 )
 
 function run(raw: string): string[] {
